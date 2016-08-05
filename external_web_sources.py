@@ -1,11 +1,11 @@
-from lib.bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 from pprint import pprint
 from urlparse import urlparse
 import lib.gds.pub.burp
 import sys
 import operator
-from cursesmenu import *
-from cursesmenu.items import *
+from lib.cursesmenu.cursesmenu import *
+from lib.cursesmenu.cursesmenu.items import *
 
 def findExternal(element, attribute):
     global websites
@@ -30,7 +30,11 @@ def findExternal(element, attribute):
         except:
             continue
 
-burp_calls = gds.pub.burp.parse(sys.argv[1])
+if len(sys.argv) != 2:
+    print 'Please provide log file path. python ' + sys.argv[0] + " <log_file>"
+    sys.exit()
+
+burp_calls = lib.gds.pub.burp.parse(sys.argv[1])
 
 websites = {}
 sources = {}
