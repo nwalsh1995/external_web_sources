@@ -7,3 +7,4 @@ Additionally, install BeautifulSoup, `pip install bs4`
 
 Call the script with `python external_web_sources.py <log_file>` and it will display a sorted GUI of 3rd party imports for each website. 
 
+Alternatively, call `python external_web_file.py </path/to/file.html>` to parse out external sources from an HTML on disk. 
